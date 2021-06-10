@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+	<div class="form-group">
+
+		<form method="post" class="pt-5 mb-5 pb-5">
+
+			<div class="row">
+				<div class="col-md-12 text-right">
+			        <button type="submit" class="btn btn-outline-primary" ><span style="font-size: 1rem;"><i class="far fa-paper-plane fa-lg pt-2 pb-2"></i></span>Publish</button>					
+				</div>
+			</div>
+
+
+		<!-- image part start -->
+			<div class="row pt-5 pb-5">
+				<div class="imagecontainer" hidden>
+					<div class="wrapper">
+						<div class="image">
+							<img id="upload-img" src="" alt="" accept="image/*">
+						</div>
+						<div id="cancel-btn">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="file-name text-center">
+							--------
+						</div>
+					</div>
+					<input type="file" id="default-btn" hidden>
+				</div>
+				<button onclick = "defaultBtnActive()" id="addimagebtn" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 "><i class="far fa-image fa-lg"></i>Add cover photo</button>
+			</div>
+		<!-- image part over -->
+
+		
+
+			<div class="row">
+				<div class="col-md-12 mb-2">
+					<textarea class="form-control" maxlength="150" id="blogtitlefield" rows="2" placeholder="Title..." name="title"></textarea>
+				</div>
+			</div>
+
+		
+
+			<div class="row">
+				<div class="col-md-12">
+					{{form.media}}
+					{{form.as_p}}
+				</div>
+			</div>
+				
+			
+			
+		</form>
+
+	</div>
+	
+</div>
+
+{% endblock %}

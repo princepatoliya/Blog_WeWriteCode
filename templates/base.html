@@ -1,0 +1,57 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from demo.bootstrapious.com/directory/1-6-1/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Apr 2021 09:21:30 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>We Write Code | Written guides for programers </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    
+    {% comment %} csslinks {% endcomment %}
+    {% include 'includes/links.html'%}
+    
+    {% comment %} script links {% endcomment %}
+    {% include 'includes/scripts.html' %}
+
+   </head>
+  <body style="padding-top: 72px;">
+    <input type="hidden" id="csrf" value="{{csrf_token}}">
+    
+    {% comment %} navbar{% endcomment %}
+    <header class="header">
+    {% include 'includes/navbar.html' %}
+    </header>
+
+    
+
+    {% block content %}
+
+
+    {% endblock %}
+
+
+    <footer class="position-relative z-index-10 d-print-none">
+   
+      <div class="py-4 font-weight-light bg-gray-800 text-gray-300">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-left">
+              <p class="text-sm mb-md-0">&copy; 2021, We Write <span style="color: green">Code</span>.  All rights reserved.</p>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </footer>
+   
+    
+  </body>
+
+
+</html>
