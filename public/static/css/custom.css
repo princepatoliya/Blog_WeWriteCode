@@ -1,6 +1,6 @@
 
 .imagecontainer{
-	width: 100%;
+	width: 720px;
 	height: 400px;
 	position: relative;
 }
@@ -40,17 +40,6 @@
 	object-fit: cover;
 	border: 0;
 
-}
-
-.wrapper .icon{
-  font-size: 100px;
-  color: #5DA3FA;
-
-}
-.wrapper .text{
-  font-size: 20px;
-  font-weight: 500;
-  color: #242B2E;
 }
 
 .wrapper #cancel-btn{

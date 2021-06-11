@@ -6,31 +6,48 @@
 	<div class="form-group">
 
 		<form method="post" class="pt-5 mb-5 pb-5">
+			{% csrf_token %}
+			<div class="row align-items-center">
+				<div class="col text-left">
+					<button onclick = "defaultBtnActive()" id="addimagebtn" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 "><i class="far fa-image fa-lg"></i>Add cover photo</button>
+				</div>
 
-			<div class="row">
-				<div class="col-md-12 text-right">
+				<div class="col text-right">
 			        <button type="submit" class="btn btn-outline-primary" ><span style="font-size: 1rem;"><i class="far fa-paper-plane fa-lg pt-2 pb-2"></i></span>Publish</button>					
 				</div>
 			</div>
 
 
 		<!-- image part start -->
-			<div class="row pt-5 pb-5">
-				<div class="imagecontainer" hidden>
-					<div class="wrapper">
-						<div class="image">
-							<img id="upload-img" src="" alt="" accept="image/*">
-						</div>
-						<div id="cancel-btn">
-							<i class="fas fa-times"></i>
-						</div>
-						<div class="file-name text-center">
-							--------
-						</div>
+			<div class="container">
+			<div class="row">
+				<div class="col">
+					<div>	
+						<span></span>
 					</div>
-					<input type="file" id="default-btn" hidden>
 				</div>
-				<button onclick = "defaultBtnActive()" id="addimagebtn" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 "><i class="far fa-image fa-lg"></i>Add cover photo</button>
+				<div class="col align-self-center">
+					<div class="col align-self-center imagecontainer" hidden>
+						<div class="wrapper">
+							<div class="image">
+								<img id="upload-img" name="uploadedimage" src="" alt="" accept="image/*">
+							</div>
+							<div id="cancel-btn">
+								<i class="fas fa-times"></i>
+							</div>
+							<div class="file-name text-center">
+								--------
+							</div>
+						</div>
+						<input type="file" id="default-btn" hidden>
+					</div>
+				</div>
+				<div class="col">
+					<div>	
+						<span></span>
+					</div>
+				</div>
+			</div>
 			</div>
 		<!-- image part over -->
 
