@@ -5,6 +5,6 @@ from .models import (
 # Register your models here.
 
 class AdminBlogModel(admin.ModelAdmin):
-    list_display = ('id', 'title', 'created_at', 'update_at',)
+    list_display = ('id', 'user', 'title', 'created_at', 'update_at',)
 
 admin.site.register(BlogModel, AdminBlogModel)

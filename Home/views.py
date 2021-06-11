@@ -11,17 +11,20 @@ from .form import (
 # Create your views here.
 
 def home_screen_view(request):
-    return render(request, 'home/home.html')
+    data = {
+    'blogs' : BlogModel.objects.all(),
+    }
+    return render(request, 'home/home.html', data)
 
 
 def add_blog(request):
     try:
         if request.method == "POST":
-            print("i'm working")
+            print("-------------------------i'm working------------------------------")
             form = BlogForm(request.POST)
-            print("from, ", form)
+            print(request.FILES)
             image = request.FILES['uploadedimage']
-            title = request.post.get('title')
+            title = request.POST.get('title')
             user = request.user
 
             if form.is_valid():
@@ -29,7 +32,6 @@ def add_blog(request):
 
 
             blog_obj = BlogModel.objects.create(user=user, title=title, content=content, image=image)
-            print("Blog object", blog_obj)
 
     except Exception as e:
         print(e) 

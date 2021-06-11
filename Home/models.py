@@ -1,12 +1,14 @@
 from django.db import models
 from froala_editor.fields import FroalaField
 
+from django.contrib.auth.models import User
 from .helper import (
     generate_slug
 )
 
 # Create your models here.
 class BlogModel(models.Model):
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=1000)
     content = FroalaField()
     slug = models.SlugField(max_length=1000, null=True, blank=True)

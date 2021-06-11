@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="form-group">
 
-		<form method="post" class="pt-5 mb-5 pb-5">
+		<form method="post" class="pt-5 mb-5 pb-5" enctype="multipart/form-data">
 			{% csrf_token %}
 			<div class="row align-items-center">
 				<div class="col text-left">
@@ -30,7 +30,7 @@
 					<div class="col align-self-center imagecontainer" hidden>
 						<div class="wrapper">
 							<div class="image">
-								<img id="upload-img" name="uploadedimage" src="" alt="" accept="image/*">
+								<img id="upload-img" src="" alt="" accept="image/*">
 							</div>
 							<div id="cancel-btn">
 								<i class="fas fa-times"></i>
@@ -39,7 +39,7 @@
 								--------
 							</div>
 						</div>
-						<input type="file" id="default-btn" hidden>
+						<input type="file" name="uploadedimage" id="default-btn" hidden>
 					</div>
 				</div>
 				<div class="col">
