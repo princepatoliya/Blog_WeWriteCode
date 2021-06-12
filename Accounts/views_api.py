@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
-
+from django.contrib import messages
 
 class LoginView(APIView):
     
@@ -39,6 +39,7 @@ class LoginView(APIView):
                 login(request, user_obj)
                 response['message'] = 'Welcome'
                 response['status'] = 200
+                messages.success(request, f"{data.get('username')} - Welcome ")
             else:
                 response['message'] = 'The username and/or password you specified are not correct.'
                 raise Exception('Invalid password')
