@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include 'messages.html' %}
+
 <div class="container mt-6 mb-6">
 	
 	<div class="table-responsive-lg">
@@ -24,10 +26,10 @@
 		      <td>{{blog.created_at}}</td>
 		      <td>{{blog.update_at}}</td>
 		      <td>
-		      	<a href="" class="btn btn-primary">Update</a>
+		      	<a href="{% url 'update_blog' blog.slug %}" class="btn btn-primary">Update</a>
 		      </td>
 		      <td>
-		      	<a href="" class="btn btn-danger">Delete</a>
+		      	<a class="btn btn-warning" href="{% url 'delete_blog' blog.id %}" >Delete</a>
 		      </td>
 		    </tr>
 		    {% endfor %}
@@ -36,6 +38,7 @@
 	</div>
 
 </div>
+
 
 
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from django.contrib import messages
@@ -14,7 +14,7 @@ from .form import (
 
 def home_screen_view(request):
     data = {
-    'blogs' : BlogModel.objects.all(),
+    'blogs' : BlogModel.objects.all()[::-1],
     }
     return render(request, 'home/home.html', data)
 
@@ -35,7 +35,7 @@ def add_blog(request):
 
             blog_obj = BlogModel.objects.create(user=user, title=title, content=content, image=image)
             messages.info(request, f"{title} - Blog published successfully")
-            return render(request, 'home/home.html')
+            return redirect('home')
 
     except Exception as e:
         print(e) 
@@ -48,11 +48,34 @@ def add_blog(request):
     return render(request, 'home/add_blog.html', data)
 
 
+def delete_blog(request, id):
+    try:
+        blog_obj =  BlogModel.objects.get(id=id)
+            
+        if blog_obj.user != request.user:
+            messages.warning(request, "We got an unexpected task from you, next time you will be banned permanently")
+            return redirect('home')
+
+        blog_obj.delete()
+        messages.info(request, f"{blog_obj.title} : Deleted successfully.")
+
+    except Exception as e:
+        print(e)
+
+    return redirect('your_all_blogs')
+
+
+
+
+def update_blog(request, slug):
+    return redirect('home')
+
+
 def blog_detail(request, slug):
     print("slug:", slug)
     try:
         data = {'blog_detail': BlogModel.objects.filter(slug = slug).first()}
-        print("data: ", data)
+        # print("data: ", data)
 
     except Exception as e:
         print(e)

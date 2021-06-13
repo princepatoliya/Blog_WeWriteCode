@@ -93,12 +93,35 @@
 
 #blogtitlefield:focus{
 	border-color: none;
-  box-shadow: none;
-  outline: 0 none;
+	box-shadow: none;
+	outline: 0 none;
 }
 
 .headline{
 	margin: auto;
 	width: 60%;
 	font-size: 20px;
+}
+
+.blog-headline{
+	margin: auto;
+	width: 65%;
+}
+
+.blog_detail_poster{
+	margin: auto;
+	width: 720px;
+	height: 400px;
+	background-size: cover;
+}
+
+.blogposter{
+	width: 436px;
+	height: 230px;
+}
+.blogposter img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border: 0;
 }

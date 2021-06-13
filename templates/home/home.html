@@ -15,21 +15,24 @@
   </section>
 
 
-  <section class="py-6">
-    <div class="container">
+  <section class="py-4">
+    <div class="container" style="width: 1000px;">
       <div class="row mb-5">
         
         <!-- blog item-->
         {% for blog in blogs %}
-        <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-          <div class="card shadow border-0 h-100">
+        <div class="col-lg-6 col-sm-8 mb-4 hover-animate">
+          <div class="card shadow border-0" style="width: 436px;">
             <a href="{% url 'blog_detail' blog.slug %}">
-              <img class="img-fluid card-img-top" src="{{ blog.image.url }}" alt="cover_photo"/></a>
+              <div class="blogposter">
+                
+                <img class="img-fluid card-img-top rounded" src="{{ blog.image.url }}" alt="cover_photo"/></a>
+              </div>
             <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="{% url 'blog_detail' blog.slug %}">{{ blog.user.username }}</a>
               <h5 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h5>
               <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i> {{ blog.created_at }} </p>
               <p class="my-2 text-muted text-sm">
-                {{ blog.content|striptags|slice:":250"}}
+                {{ blog.content|striptags|truncatechars:"200"}}
                 
               </p>
            
