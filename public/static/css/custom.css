@@ -102,3 +102,15 @@
 	width: 60%;
 	font-size: 20px;
 }
+
+.blog-headline{
+	margin: auto;
+	width: 65%;
+}
+
+.blog_detail_poster{
+	margin: auto;
+	width: 720px;
+	height: 400px;
+	background-size: cover;
+}

@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include 'messages.html' %}
+
 <div class="container mt-6 mb-6">
 	
 	<div class="table-responsive-lg">
@@ -27,7 +29,8 @@
 		      	<a href="" class="btn btn-primary">Update</a>
 		      </td>
 		      <td>
-		      	<a href="" class="btn btn-danger">Delete</a>
+		      	<!-- Button trigger modal -->
+		      	<a id="confirm-delete" class="btn btn-warning" href="{% url 'delete_blog' blog.id %}" >Delete</a>
 		      </td>
 		    </tr>
 		    {% endfor %}
@@ -36,6 +39,7 @@
 	</div>
 
 </div>
+
 
 
 

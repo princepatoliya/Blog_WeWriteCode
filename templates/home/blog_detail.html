@@ -4,17 +4,24 @@
 
 <section>
 
-    <div class="container">
-       
-        <div class="row text-center">
-            <div class="col-xl-10 mx-auto"><img class="img-fluid mb-5"
-                    src="{{blog_detail.image.url}}"
-                    alt="cover_photo"></div>
-        </div>
-        <div class="row">
-            <div class="col-xl-8 col-lg-10 mx-auto">
-                <div class="text-content">
-                    {{blog_detail.content |safe }}
+    <div class="container ">
+        <div class="col">
+            <div class="blog-headline mt-5 mb-5">
+                <h1>{{blog_detail.title}}</h1>
+            </div>
+    
+            <div class="row mt-5 mb-5">
+                <div class="blog_detail_poster"><img class="img-fluid mb-5"
+                        src="{{blog_detail.image.url}}"
+                        alt="cover_photo">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xl-8 col-lg-10 mx-auto">
+                    <div class="text-content mt-4 mb-4">
+                        {{blog_detail.content |safe }}
+                    </div>
                 </div>
             </div>
         </div>
