@@ -14,7 +14,7 @@ from .form import (
 
 def home_screen_view(request):
     data = {
-    'blogs' : BlogModel.objects.all(),
+    'blogs' : BlogModel.objects.all()[::-1],
     }
     return render(request, 'home/home.html', data)
 

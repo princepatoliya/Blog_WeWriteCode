@@ -93,8 +93,8 @@
 
 #blogtitlefield:focus{
 	border-color: none;
-  box-shadow: none;
-  outline: 0 none;
+	box-shadow: none;
+	outline: 0 none;
 }
 
 .headline{
@@ -113,4 +113,18 @@
 	width: 720px;
 	height: 400px;
 	background-size: cover;
+<<<<<<< HEAD
+=======
+}
+
+.blogposter{
+	width: 436px;
+	height: 230px;
+}
+.blogposter img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border: 0;
+>>>>>>> beta
 }
