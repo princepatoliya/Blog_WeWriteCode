@@ -115,7 +115,7 @@ def update_blog(request, slug):
 
     return render(request, "home/update_blog.html", data)
 
-@login_required(login_url='login_view')
+
 def blog_detail(request, slug):
     # print("slug:", slug)
     try:

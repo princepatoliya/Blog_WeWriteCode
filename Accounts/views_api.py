@@ -31,7 +31,7 @@ class LoginView(APIView):
             if check_user is None:
                 response['message'] = 'Invalid credentials'
                 raise Exception('Invalid username.')
-            response['message'] = 'userfound'
+            response['message'] = 'user not found'
 
             user_obj = authenticate(username = data.get('username'), password = data.get('password'))
             
