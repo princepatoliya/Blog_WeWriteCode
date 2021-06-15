@@ -51,11 +51,26 @@
 			</div>
 		<!-- image part over -->
 
-		
-
+			
 			<div class="row">
 				<div class="col-md-12 mb-2">
+					<div class="col text-left">
+						<button onclick = "addsubtitlefield()" id="addsubtitlebtn" class="btn btn-outline-primary mt-4 pt-2 pb-2 ">Add subtitle</button>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-12 mb-1">
 					<textarea class="form-control" maxlength="150" id="blogtitlefield" rows="2" placeholder="Title..." name="title"></textarea>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12 mb-2">
+					<input class="form-control" maxlength="300" id="blogsubtitlefield" placeholder="Subtitle (Optional)" name="subtitle">
+					<div class="cancel-subtitle"><i class="fas fa-times"></i></div>
 				</div>
 			</div>
 
@@ -75,5 +90,26 @@
 	</div>
 	
 </div>
+<script>
+	$(document).ready(function() {
+		$(".cancel-subtitle").hide();
+		$("#blogsubtitlefield").hide();
+	});
+
+	$(".cancel-subtitle").click(function(){
+		$(".cancel-subtitle").hide();
+		$("#blogsubtitlefield").hide();
+		$("#addsubtitlebtn").show();
+    });
+
+	function addsubtitlefield(){
+		$(".cancel-subtitle").show();
+		$("#blogsubtitlefield").show();
+		$("#addsubtitlebtn").hide();
+
+	}
+
+
+</script>
 
 {% endblock %}

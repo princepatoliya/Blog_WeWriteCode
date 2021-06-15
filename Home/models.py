@@ -10,6 +10,7 @@ from .helper import (
 class BlogModel(models.Model):
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=1000)
+    subtitle = models.CharField(max_length=1000, blank=True, null=True, default='')
     content = FroalaField()
     slug = models.SlugField(max_length=1000, null=True, blank=True)
     image = models.ImageField(upload_to="BlogImage")

@@ -54,6 +54,7 @@
 
 }
 
+
 .wrapper.active:hover #cancel-btn{
 	display: block;
 
@@ -80,7 +81,7 @@
 }
 
 
-#blogtitlefield{
+#blogtitlefield, #blogsubtitlefield{
 	font-weight: bold;
 	color: black;
 	height: 82px !important;
@@ -95,6 +96,19 @@
 	border-color: none;
 	box-shadow: none;
 	outline: 0 none;
+}
+
+.cancel-subtitle{
+	position: absolute;
+	font-size: 20px;
+	cursor: pointer;
+	color: #5B54FA;
+	right: -20px;
+    top: 22px;
+}
+
+.cancel-subtitle:hover{
+	color: #B4161B;
 }
 
 .headline{
@@ -179,3 +193,4 @@
 .wrapper.active:hover .image-name{
 	display: block;
 }
+

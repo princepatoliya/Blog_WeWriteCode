@@ -1,4 +1,3 @@
-  
 function alertmessage(msg_type, msg){
     $.bootstrapGrowl(msg, {
         ele: 'body', // which element to append to

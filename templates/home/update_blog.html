@@ -10,7 +10,7 @@
 			<div class="row align-items-center">
 				<div class="col text-left">
                     <input type="file" name="uploadedimage" id="uploadfileBtn" hidden>
-					<button  onclick="changePosterBtn()" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 "><i class="far fa-image fa-lg"></i>Change cover photo</button>
+					<button  onclick="changePosterBtn()" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 " hidden><i class="far fa-image fa-lg"></i>Change cover photo</button>
 				</div>
 
 				<div class="col text-right">
@@ -44,11 +44,27 @@
                 </div>
             </div>
 
+
+			<div class="row">
+				<div class="col-md-12 mb-2">
+					<div class="col text-left">
+						<button onclick = "addsubtitle()" id="addsubtitlebtn" class="btn btn-outline-primary mt-4 pt-2 pb-2 ">Add subtitle</button>
+					</div>
+				</div>
+			</div>
 		
 
 			<div class="row">
 				<div class="col-md-12 mb-2">
 					<textarea class="form-control" maxlength="150" id="blogtitlefield" rows="2" placeholder="Title..." name="title">{{blog_obj.title}}</textarea>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-12 mb-2">
+					<input class="form-control" maxlength="300" id="blogsubtitlefield" placeholder="Subtitle (Optional)" name="subtitle" value="{{blog_obj.subtitle}}">
+					<div class="cancel-subtitle"><i class="fas fa-times"></i></div>
 				</div>
 			</div>
 
@@ -68,5 +84,27 @@
 	</div>
 	
 </div>
+<script>
+	$(document).ready(function() {
+		$(".cancel-subtitle").show();
+		$("#blogsubtitlefield").show();
+		$("#addsubtitlebtn").hide();
+	});
+
+	$(".cancel-subtitle").click(function(){
+		$(".cancel-subtitle").hide();
+		$("#blogsubtitlefield").hide();
+		$("#addsubtitlebtn").show();
+    });
+
+	function addsubtitle(){
+		$(".cancel-subtitle").show();
+		$("#blogsubtitlefield").show();
+		$("#addsubtitlebtn").hide();
+
+	}
+
+
+</script>
 
 {% endblock %}

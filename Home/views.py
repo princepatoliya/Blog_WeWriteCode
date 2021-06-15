@@ -36,13 +36,15 @@ def add_blog(request):
             # print(request.FILES)
             image = request.FILES['uploadedimage']
             title = request.POST.get('title')
+            print("----------title is ----------", title)
+            subtitle = request.POST.get('subtitle')
             user = request.user
 
             if form.is_valid():
                 content = form.cleaned_data['content']
 
 
-            blog_obj = BlogModel.objects.create(user=user, title=title, content=content, image=image)
+            blog_obj = BlogModel.objects.create(user=user, title=title, subtitle=subtitle, content=content, image=image)
             messages.info(request, f"{title} - Blog published successfully")
             return redirect('home')
 
@@ -115,9 +117,12 @@ def update_blog(request, slug):
 
 @login_required(login_url='login_view')
 def blog_detail(request, slug):
-    print("slug:", slug)
+    # print("slug:", slug)
     try:
-        data = {'blog_detail': BlogModel.objects.filter(slug = slug).first()}
+        blog_obj = BlogModel.objects.filter(slug = slug).first()
+        if blog_obj.subtitle == None:
+            blog_obj.subtitle = ""
+        data = {'blog_detail': blog_obj}
         # print("data: ", data)
 
     except Exception as e:
