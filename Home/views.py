@@ -68,7 +68,28 @@ def delete_blog(request, id):
 
 
 def update_blog(request, slug):
-    return redirect('home')
+    data = {}
+    try:
+        blog_obj = BlogModel.objects.get(slug = slug)
+
+        if blog_obj.user != request.user:
+            messages.warning(request, "We got an unexpected task from you, next time you will be banned permanently")
+            return redirect('home')
+
+        initial_dict = {"content" : blog_obj.content }
+        form = BlogForm(initial=initial_dict)
+        print("Form: ", form)
+
+        data = {
+            'blog_obj' : blog_obj,
+            'form' : form,
+        }
+
+    except Exception as e:
+        print(e)
+
+
+    return render(request, "home/update_blog.html", data)
 
 
 def blog_detail(request, slug):

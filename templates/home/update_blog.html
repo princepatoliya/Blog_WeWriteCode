@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+	<div class="form-group">
+
+		<form method="post" class="pt-5 mb-5 pb-5" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="row align-items-center">
+				<div class="col text-left">
+					<button id="addimagebtn" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 "><i class="far fa-image fa-lg"></i>Change cover photo</button>
+				</div>
+
+				<div class="col text-right">
+			        <button type="submit" class="btn btn-outline-primary" ><span style="font-size: 1rem;"><i class="far fa-paper-plane fa-lg pt-2 pb-2"></i></span>Update</button>					
+				</div>
+			</div>
+
+
+            
+
+		
+
+			<div class="row">
+				<div class="col-md-12 mb-2">
+					<textarea class="form-control" maxlength="150" id="blogtitlefield" rows="2" placeholder="Title..." name="title">{{blog_obj.title}}</textarea>
+				</div>
+			</div>
+
+		
+
+			<div class="row">
+				<div class="col-md-12">
+					{{form.media}}
+					{{form.as_p}}
+				</div>
+			</div>
+				
+			
+			
+		</form>
+
+	</div>
+	
+</div>
+
+{% endblock %}
