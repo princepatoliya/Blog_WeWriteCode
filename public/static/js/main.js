@@ -104,3 +104,14 @@ function defaultBtnActive(){
         }
     });
 }
+
+// incomplete ....
+function changePosterBtn(){
+    var uploadimage = document.getElementById("uploadfileBtn");
+    uploadimage.click();
+    uploadimage.addEventListener("change", handleFiles, false);
+    function handleFiles(){
+        var imagefile = this.files[0];
+        // console.log("get file" + imagefile);
+    }
+}

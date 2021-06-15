@@ -3,6 +3,10 @@ from django.http import HttpResponse
 
 from django.contrib import messages
 
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+
+
 from .models import (
     BlogModel
     )
@@ -10,7 +14,12 @@ from .models import (
 from .form import (
     BlogForm
     )
+
 # Create your views here.
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
 
 def home_screen_view(request):
     data = {
@@ -18,7 +27,7 @@ def home_screen_view(request):
     }
     return render(request, 'home/home.html', data)
 
-
+@login_required(login_url='login_view')
 def add_blog(request):
     try:
         if request.method == "POST":
@@ -47,7 +56,7 @@ def add_blog(request):
 
     return render(request, 'home/add_blog.html', data)
 
-
+@login_required(login_url='login_view')
 def delete_blog(request, id):
     try:
         blog_obj =  BlogModel.objects.get(id=id)
@@ -66,7 +75,7 @@ def delete_blog(request, id):
 
 
 
-
+@login_required(login_url='login_view')
 def update_blog(request, slug):
     data = {}
     try:
@@ -78,12 +87,25 @@ def update_blog(request, slug):
 
         initial_dict = {"content" : blog_obj.content }
         form = BlogForm(initial=initial_dict)
-        print("Form: ", form)
 
         data = {
             'blog_obj' : blog_obj,
             'form' : form,
         }
+
+        # updation
+        if request.method == "POST":
+            # print("--------> post hit")
+            form = BlogForm(request.POST)
+            title = request.POST.get('title')
+
+            if form.is_valid():
+                content = form.cleaned_data['content']
+
+            # print("new title ", title)
+            blog_obj= BlogModel.objects.filter(slug = slug).update(title = title, content = content)
+            messages.info(request, f"{title} - Blog updated successfully")
+            return redirect('home')
 
     except Exception as e:
         print(e)
@@ -91,7 +113,7 @@ def update_blog(request, slug):
 
     return render(request, "home/update_blog.html", data)
 
-
+@login_required(login_url='login_view')
 def blog_detail(request, slug):
     print("slug:", slug)
     try:
@@ -105,7 +127,7 @@ def blog_detail(request, slug):
     return render(request, "home/blog_detail.html", data)
 
 
-
+@login_required(login_url='login_view')
 def your_all_blogs(request):
     data = {}
     try: 

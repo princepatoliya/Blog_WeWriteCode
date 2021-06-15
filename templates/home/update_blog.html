@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-
+{% load static %}
 {% block content %}
 
 <div class="container">
@@ -9,7 +9,8 @@
 			{% csrf_token %}
 			<div class="row align-items-center">
 				<div class="col text-left">
-					<button id="addimagebtn" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 "><i class="far fa-image fa-lg"></i>Change cover photo</button>
+                    <input type="file" name="uploadedimage" id="uploadfileBtn" hidden>
+					<button  onclick="changePosterBtn()" class="btn btn-outline-primary btn-lg mt-4 pt-2 pb-2 "><i class="far fa-image fa-lg"></i>Change cover photo</button>
 				</div>
 
 				<div class="col text-right">
@@ -18,7 +19,30 @@
 			</div>
 
 
-            
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col">
+                        <div><span></span></div>
+                    </div>
+
+                    <div class="col align-self-center">
+                        <div class="col align-self-center wrappercontainer">
+                            <div class="wrapperimage">
+                                <div class="image">
+                                    <img src="{{blog_obj.image.url}}" alt="">
+                                </div>
+                                <div class="text-center image-name">
+                                    --------
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div><span></span></div>
+                    </div>
+                </div>
+            </div>
 
 		
 

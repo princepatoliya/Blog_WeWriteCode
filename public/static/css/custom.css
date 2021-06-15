@@ -113,8 +113,6 @@
 	width: 720px;
 	height: 400px;
 	background-size: cover;
-<<<<<<< HEAD
-=======
 }
 
 .blogposter{
@@ -126,5 +124,58 @@
 	width: 100%;
 	object-fit: cover;
 	border: 0;
->>>>>>> beta
+}
+
+
+/* for upload_blog  */
+
+.wrappercontainer{
+	width: 720px;
+	height: 400px;
+	position: relative;
+}
+
+.wrappercontainer .wrapperimage{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	border-radius: .5rem;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.wrapperimage .image{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.wrapperimage .image img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border: 0;
+
+}
+
+.wrapperimage .image-name{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	color: #fff;
+	padding: 8px 0;
+	font-size: 18px;
+	background: linear-gradient(135deg, #538FFB 0%, #5B54FA 100%);
+	display: none;
+
+}
+.wrapper.active:hover .image-name{
+	display: block;
 }

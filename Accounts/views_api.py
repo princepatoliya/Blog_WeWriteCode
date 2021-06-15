@@ -29,7 +29,7 @@ class LoginView(APIView):
             check_user = User.objects.filter(username = data.get('username')).first()
             
             if check_user is None:
-                response['message'] = 'The username and/or password you specified are not correct.'
+                response['message'] = 'Invalid credentials'
                 raise Exception('Invalid username.')
             response['message'] = 'userfound'
 
@@ -41,7 +41,7 @@ class LoginView(APIView):
                 response['status'] = 200
                 messages.success(request, f"{data.get('username')} - Welcome ")
             else:
-                response['message'] = 'The username and/or password you specified are not correct.'
+                response['message'] = 'Invalid credentials'
                 raise Exception('Invalid password')
 
         except Exception as e:
