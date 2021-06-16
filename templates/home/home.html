@@ -28,9 +28,9 @@
                 
                 <img class="img-fluid card-img-top rounded" src="{{ blog.image.url }}" alt="cover_photo"/></a>
               </div>
-            <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="{% url 'blog_detail' blog.slug %}">{{ blog.user.username }}</a>
+            <div class="card-body"><a class="text-uppercase text-md text-gray-700 letter-spacing-2" href="{% url 'blog_detail' blog.slug %}">{{ blog.user.username }}</a>
               <h5 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h5>
-              <a><p class="text-gray-500 text-md my-3">{{ blog.created_at|date:"d M Y" }} &nbsp; <span><i class="far fa-clock mr-2"></i>2 Min read</span></p>
+              <a><p class="text-gray-700 text-md my-3">{{ blog.created_at|date:"d M Y" }} &nbsp; <span><i class="far fa-clock mr-2"></i>{{blog.get_readtime}}</span></p>
               <p class="my-2 text-muted text-sm">
                 {{ blog.content|striptags|truncatechars:"200"}}
                 

@@ -26,8 +26,11 @@
                         <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="profile-pic">
                     </div>
                     <div class="userdetails">
-                        <a><span class="text-lg">{{blog_detail.user}}</span></a>
-                        <p class="text-gray-400 text-md">Published on <span class="text-gray-600">{{blog_detail.created_at|date:"d M Y"}}</span></p>
+                        
+                        <span class="text-lg">{{blog_detail.user}}</span>
+                        <p class="text-gray-400 text-md">Published on <span class="text-gray-700">{{blog_detail.created_at|date:"d M Y"}}</span></p>
+                        <span class="text-gray-700 text-md"><i class="far fa-clock mr-2"></i>{{blog_detail.get_readtime}}</span>
+                        
                     </div>
                 </div> 
                 

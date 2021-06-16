@@ -6,6 +6,8 @@ from .helper import (
     generate_slug
 )
 
+import readtime
+
 # Create your models here.
 class BlogModel(models.Model):
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
@@ -16,6 +18,10 @@ class BlogModel(models.Model):
     image = models.ImageField(upload_to="BlogImage")
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+
+    def get_readtime(self):
+        result = readtime.of_html(self.content)
+        return result.text
 
     def __str__(self):
         return self.title
