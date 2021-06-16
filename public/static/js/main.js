@@ -22,19 +22,22 @@ function login(){
     if(username == "" || password == ""){
     
         if(username == ""){
-            document.getElementById('username_empty_msg').innerHTML = "Required";
+            document.getElementById('login_username_empty_msg').innerHTML = "Required, Only [0-9] and [a-z] and Underscore( _ ) ";
         }
         else{
-            document.getElementById('username_empty_msg').innerHTML = "";
+            document.getElementById('login_username_empty_msg').innerHTML = "";
         }
         if(password == ""){
-            document.getElementById('password_empty_msg').innerHTML = "Required";
+            document.getElementById('login_password_empty_msg').innerHTML = "Required";
         }
         else{
-            document.getElementById('password_empty_msg').innerHTML = "";
+            document.getElementById('login_password_empty_msg').innerHTML = "";
         }
     }
     else{
+        document.getElementById('login_password_empty_msg').innerHTML = "";
+        document.getElementById('login_username_empty_msg').innerHTML = "";
+
         var data = {
             "username" : username,
             "password" : password
@@ -62,6 +65,77 @@ function login(){
 
     }
 }
+
+function register(){
+    var csrf = document.getElementById('csrf').value;
+    var registerUsername = document.getElementById('registerUsername').value;
+    var registerPassword = document.getElementById('registerPassword').value;
+    var registerConfirmPassword = document.getElementById('registerConfirmPassword').value;
+    var registerEmail = document.getElementById('registerEmail').value;
+
+    if(registerUsername == "" || registerPassword == "" || registerConfirmPassword == "" || registerEmail == ""){
+        if(registerUsername == ""){
+            document.getElementById('register_username_empty_msg').innerHTML = "Required, Only [0-9] and [a-z] and Underscore( _ ) ";
+        }
+        else{
+            document.getElementById('register_username_empty_msg').innerHTML = "";
+        }
+
+        if(registerPassword == ""){
+            document.getElementById('register_password_empty_msg').innerHTML = "Required";
+        }
+        else{
+            document.getElementById('register_password_empty_msg').innerHTML = "";
+        }
+
+        if(registerConfirmPassword == ""){
+            document.getElementById('register_cpassword_empty_msg').innerHTML = "Required";
+        }
+        else{
+            document.getElementById('register_cpassword_empty_msg').innerHTML = "";
+        }
+        if(registerEmail == ""){
+            document.getElementById('register_email_empty_msg').innerHTML = "Required";
+        }
+        else{
+            document.getElementById('register_email_empty_msg').innerHTML = "";
+        }
+
+    }
+    else{   
+        document.getElementById('register_username_empty_msg').innerHTML = "";
+        document.getElementById('register_password_empty_msg').innerHTML = "";
+        document.getElementById('register_cpassword_empty_msg').innerHTML = "";
+        document.getElementById('register_email_empty_msg').innerHTML = "";
+
+        var data = {
+            "username" : registerUsername,
+            "password" : registerPassword,
+            "confirmpassword" : registerConfirmPassword,
+            "email": registerEmail,
+        }
+
+        fetch('/api/register/', {
+            method : "POST",
+            headers : {
+                'Content-Type' : 'application/json',
+                'X-CSRFToken' : csrf,
+            },
+            body: JSON.stringify(data)
+        }).then(result => result.json()).then(response => {
+            if(response.status == 200){
+                window.location.href = 'login/'
+                
+            }
+            else{
+                alertmessage('danger', response.message);
+            }
+        })
+    }
+}
+
+
+
 
 
 // addimage - add blog

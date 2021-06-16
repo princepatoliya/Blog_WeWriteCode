@@ -9,22 +9,26 @@
          
           <div class="form-validate">
             
-            <div class="form-group">
-              <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="Username" autocomplete="off" required data-msg="Please enter your username">
-            </div>
-            <div class="form-group">
-              <input class="form-control" name="loginPassword" id="loginPassword" type="password" placeholder="Password" autocomplete="off" required data-msg="Please enter password">
-            </div>
-            <div class="form-group">
-              <input class="form-control" name="loginConfirmPassword" id="loginConfirmPassword" type="password" placeholder="Confirm password" autocomplete="off" required data-msg="Please enter your email">
-            </div>
-            <div class="form-group">
-              <input class="form-control" name="loginEmail" id="loginEmail" placeholder="E-mail address" type="email" required data-msg="Please enter your e-mail">
-            </div>
-            
-            <!-- Submit-->
-            <button class="btn btn-lg btn-block btn-primary" onclick="register()">Sign Up</button>
-            <p class="text-center"><small class="text-muted text-center">Have a account? <a href="{% url 'login_view' %}">Sign In</a></small></p>
+              <div class="form-group">
+                <input class="form-control" type="text" name="registerUsername" id="registerUsername" placeholder="Username" autocomplete="off" required data-msg="Please enter your username">
+                <p class="text-left"><small class=" text-left" style="color:red" id="register_username_empty_msg"></small></p>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="password" name="registerPassword" id="registerPassword"  placeholder="Password" autocomplete="off" required data-msg="Please enter password">
+                <p class="text-left"><small class=" text-left" style="color:red" id="register_password_empty_msg"></small></p>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="password" name="registerConfirmPassword" id="registerConfirmPassword"  placeholder="Confirm password" autocomplete="off" required data-msg="Please enter your email">
+                <p class="text-left"><small class=" text-left" style="color:red" id="register_cpassword_empty_msg"></small></p>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="email" name="registerEmail" id="registerEmail" placeholder="E-mail address" required data-msg="Please enter your e-mail">
+                <p class="text-left"><small class=" text-left" style="color:red" id="register_email_empty_msg"></small></p>
+              </div>
+              
+              <!-- Submit-->
+              <button class="btn btn-lg btn-block btn-primary" onclick="register()">Sign Up</button>
+              <p class="text-center"><small class="text-muted text-center">Have a account? <a href="{% url 'login_view' %}">Sign In</a></small></p>
 
           </div>
           
@@ -36,5 +40,16 @@
       </div>
     </div>
   </div>
-
+  
+<script>
+  $('document').ready(function(){
+    
+    $('#registerUsername').keypress(function(e){
+      var key = e.keyCode;
+      if((key>=97 && key<=122 || key>=48 && key<=57 || key==95) == false) {
+        e.preventDefault();
+      }
+    })
+  });
+</script>
 {% endblock %}
