@@ -124,7 +124,7 @@ function register(){
             body: JSON.stringify(data)
         }).then(result => result.json()).then(response => {
             if(response.status == 200){
-                window.location.href = 'login/'
+                window.location.href = '../login'
                 
             }
             else{
@@ -144,7 +144,6 @@ function defaultBtnActive(){
     const defaultBtn = document.querySelector("#default-btn");
     const cancelBtn = document.querySelector("#cancel-btn");
     const fileName = document.querySelector(".file-name");
-    const customBtn = document.querySelector("#custom-btn");
     const img = document.querySelector("#upload-img");
     let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
     defaultBtn.click();
