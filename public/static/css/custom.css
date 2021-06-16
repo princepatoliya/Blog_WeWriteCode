@@ -125,9 +125,15 @@
 
 .blog_detail_poster{
 	margin: auto;
-	width: 720px;
-	height: 400px;
+	width: 752px;
+	height: 394.8px;
 	background-size: cover;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+.blog_detail_poster img{
+	position: absolute;
 }
 
 .blogposter{
@@ -195,3 +201,25 @@
 	display: block;
 }
 
+/* user details blog_details */
+.bloguserdetails .image{
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	
+}
+
+.bloguserdetails .image img{
+	width: 70px;
+	height: 70px;
+	object-fit: cover;
+}
+
+.bloguserdetails .userdetails{
+	position: relative;
+	margin: 0 20px;
+}
+
+.userdetails span{
+	cursor: pointer;
+}

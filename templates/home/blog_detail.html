@@ -4,27 +4,46 @@
 
 <section>
 
-    <div class="container ">
-        <div class="col">
-            <div class="blog-headline mt-5 mb-5">
-                <h1>{{blog_detail.title}}</h1>
-                <p class="text-gray-500 text-lg my-3">{{blog_detail.subtitle}}</p>
-            </div>
-    
-            <div class="row mt-5 mb-5">
-                <div class="blog_detail_poster"><img class="img-fluid mb-5"
-                        src="{{blog_detail.image.url}}"
-                        alt="cover_photo">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+
+                <div class="mt-5 mb-5">
+                    <h1>{{blog_detail.title}}</h1>
+                    <p class="text-gray-500 text-lg my-3">{{blog_detail.subtitle}}</p>
                 </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-xl-8 col-lg-10 mx-auto">
-                    <div class="text-content mt-5 mb-5">
-                        {{blog_detail.content |safe }}
+        
+                <div class="">
+                    <div class="blog_detail_poster">
+                        <img class="img-fluid" src="{{blog_detail.image.url}}" alt="cover_photo">
                     </div>
                 </div>
+
+                <hr>
+                
+                <div class="container row bloguserdetails mt-3 mb-8">
+                    <div class="image">
+                        <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="profile-pic">
+                    </div>
+                    <div class="userdetails">
+                        <a><span class="text-lg">{{blog_detail.user}}</span></a>
+                        <p class="text-gray-400 text-md">Published on <span class="text-gray-600">{{blog_detail.created_at|date:"d M Y"}}</span></p>
+                    </div>
+                </div> 
+                
+                <hr>
+                
+                    
+                <div class="text-content mt-3 mb-6">
+                    {{blog_detail.content |safe }}
+                </div>
+                    
+                
+
             </div>
+            <!-- <div class="mt-5 mb-5 col-2" style="background-color: red;">
+                Hello
+            </div> -->
         </div>
     </div>
 
