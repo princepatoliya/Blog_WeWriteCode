@@ -19,6 +19,12 @@ def login_view(request):
     else:
         return render(request, 'accounts/login.html')
 
+
+def profile_view(request):
+    return render(request, "accounts/profile.html")
+
+
+
 def verify_view(request, auth_token):
     try:
         profile_obj = Profile.objects.filter(token = auth_token).first()

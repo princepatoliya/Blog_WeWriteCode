@@ -8,6 +8,7 @@
         <a class="atag" href="/"> <i class="fas fa-laptop-code fa-sm"></i> Home</a>
         <a class="atag" href="{% url 'add_blog' %}"><i class="fas fa-plus fa-sm"></i> New Story</a>
         <a class="atag" href="{% url 'your_all_blogs' %}"><i class="fas fa-clipboard"></i> Your Stories</a>
+        <a class="atag" href="{% url 'profile'%}"><i class="fas fa-user-alt fa-sm"></i>  {{request.user}}</a>
         <a class="atag" href="{% url 'logout_view' %}" style="color: #B4161B;"><i class="fas fa-sign-out-alt fa-sm"></i> Logout</a>
         {% else %}
         <a class="atag" href="/">Home</a>

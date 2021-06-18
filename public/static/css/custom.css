@@ -1,5 +1,11 @@
 .pointer {cursor: pointer;}
 
+/* -----------------------profile----------------------- */
+.profilecontainer{
+	border: 1px solid red;
+}
+
+/* -----------------profile over---------------------------- */
 
 /* navbar */
 header {
@@ -41,6 +47,9 @@ nav a:hover {
 
 /* navbar over */
 
+
+/* -------------------------add_blog page------------------------- */
+/* add_blog image  */
 .imagecontainer{
 	width: 720px;
 	height: 400px;
@@ -121,7 +130,10 @@ nav a:hover {
 	display: block;
 }
 
+/* add_blog image over */
 
+
+/* add_blog subtitle */
 #blogtitlefield, #blogsubtitlefield{
 	font-weight: bold;
 	color: black;
@@ -163,6 +175,7 @@ nav a:hover {
 	width: 65%;
 }
 
+/* blog_detail poster */
 .blog_detail_poster{
 	margin: auto;
 	width: 752px;
@@ -186,9 +199,10 @@ nav a:hover {
 	object-fit: cover;
 	border: 0;
 }
+/* blog_detail poster over */
 
 
-/* for upload_blog  */
+/* ------------------------ for upload_blog page --------------------------- */
 
 .wrappercontainer{
 	width: 720px;
@@ -263,3 +277,5 @@ nav a:hover {
 .userdetails span{
 	cursor: pointer;
 }
+
+/* ------------------------ for upload_blog page over --------------------------- */
