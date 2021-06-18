@@ -20,23 +20,21 @@
     {% include 'includes/scripts.html' %}
 
    </head>
-  <body style="padding-top: 72px;">
+  <body>
     <input type="hidden" id="csrf" value="{{csrf_token}}">
     
-    {% comment %} navbar{% endcomment %}
-    <header class="header">
+    
+    <!-- <header> Navbar </header> -->
     {% include 'includes/navbar.html' %}
-    </header>
 
     
-
     {% block content %}
 
 
     {% endblock %}
 
 
-
+  <!-- footer -->
   {% include 'includes/footer.html' %}
  
    

@@ -1,37 +1,17 @@
  {% load static %}
-<nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
-<div class="container-fluid">
-    <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="/">
-    <h3 class="pointer">We Write <span style="color: green">Code</span></h3>
-    </div>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-    <!-- Navbar Collapse -->
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-    
-    <ul class="navbar-nav ml-auto">
-
-        {% if request.user.is_authenticated %}
-            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block pointer">
-                <a class="btn btn-dark rounded-pill" href="{% url 'your_all_blogs' %}">Profile</a>
-            </li>
-            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block pointer">
-                <a class="btn btn-dark rounded-pill" href="{% url 'your_all_blogs' %}">All Blogs</a>
-            </li>
-            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block pointer">
-                <a class="btn btn-info rounded-pill" href="{% url 'add_blog' %}">Add Blogs</a>
-            </li>
-            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block pointer">
-                <a class="btn btn-danger rounded-pill" href="{% url 'logout_view' %}">Logout</a>
-            </li>
+ <header id="header">
+	<div class="header-logo">
+		<a class="atag" href="/" style="text-decoration: none;"><h1 class="pointer"><span style="color: #242B2E;">We Write </span><span style="color: green;">Code</span></h1></a>
+	</div>
+	<nav id="navigation">
+		{% if user.is_authenticated %}
+        <a class="atag" href="/"> <i class="fas fa-laptop-code fa-sm"></i> Home</a>
+        <a class="atag" href="{% url 'add_blog' %}"><i class="fas fa-plus fa-sm"></i> New Story</a>
+        <a class="atag" href="{% url 'your_all_blogs' %}"><i class="fas fa-clipboard"></i> Your Stories</a>
+        <a class="atag" href="{% url 'logout_view' %}" style="color: #B4161B;"><i class="fas fa-sign-out-alt fa-sm"></i> Logout</a>
         {% else %}
-            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block  pointer">
-                <a href = "{% url 'login_view' %}" class="btn btn-primary rounded-pill" href="">SIGN IN</a>
-            </li>
+        <a class="atag" href="/">Home</a>
+        <a class="atag" href="{% url 'login_view' %}" style="color: green;"><i class="fas fa-sign-out-alt fa-sm"></i> Sign In</a>
         {% endif %}
-
-
-    </ul>
-    </div>
-</div>
-</nav>
-    <!-- /Navbar -->
+	</nav>
+</header>
