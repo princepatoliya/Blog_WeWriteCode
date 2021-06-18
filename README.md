@@ -1,4 +1,4 @@
-# We Write <font color="green"> CODE </font>
+# We Write <font color="green"> Code </font>
 ---
 
 Blog application with fully CURD functionality
