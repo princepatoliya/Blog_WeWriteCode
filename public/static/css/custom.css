@@ -1,4 +1,7 @@
 .pointer {cursor: pointer;}
+a{
+	text-decoration: none;
+}
 
 /* -----------------------profile----------------------- */
 .profilecontainer{
@@ -163,17 +166,8 @@ nav a:hover {
 .cancel-subtitle:hover{
 	color: #B4161B;
 }
+/* add_blog subtitle over */
 
-.headline{
-	margin: auto;
-	width: 60%;
-	font-size: 20px;
-}
-
-.blog-headline{
-	margin: auto;
-	width: 65%;
-}
 
 /* blog_detail poster */
 .blog_detail_poster{
@@ -257,25 +251,47 @@ nav a:hover {
 
 /* user details blog_details */
 .bloguserdetails .image{
+	width: 90px;
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
-	
+	display: inline-block !important; 
 }
 
 .bloguserdetails .image img{
-	width: 70px;
-	height: 70px;
+	width: 80px;
+	height: 80px;
 	object-fit: cover;
 }
 
-.bloguserdetails .userdetails{
-	position: relative;
-	margin: 0 20px;
+.bloguserdetails .userinfo1{
+	width: 500px;
 }
 
-.userdetails span{
-	cursor: pointer;
+.bloguserdetails .userinfo2{
+	width: 297px;
+	text-align: end;
 }
+
 
 /* ------------------------ for upload_blog page over --------------------------- */
+
+/* ---------------profile-page-------------------- */
+.profile-image{
+	width: 250px;
+	height: 250px;
+}
+
+#confirm-update{
+	color:#242B2E;
+}
+#confirm-update:hover{
+	color:#3DBE29;
+}
+
+#confirm-delete{
+	color: #242B2E;
+}
+#confirm-delete:hover{
+	color:#B4161B;
+}

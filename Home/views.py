@@ -130,16 +130,3 @@ def blog_detail(request, slug):
 
     
     return render(request, "home/blog_detail.html", data)
-
-
-@login_required(login_url='login_view')
-def your_all_blogs(request):
-    data = {}
-    try: 
-        blogs = BlogModel.objects.filter(user = request.user)
-        data = {'all_blogs' : blogs}
-    
-    except Exception as e:
-        print(e)
-
-    return render(request, "home/your_all_blogs.html", data)

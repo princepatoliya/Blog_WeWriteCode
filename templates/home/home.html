@@ -6,7 +6,7 @@
 
 <section class="position-relative">
       <div class="mt-2 mb-2 pt-5 pb-5" style="background-color: #CAD5E2;"> 
-          <div class="headline">
+          <div class="col-md-7 mx-auto" style="font-size: 20px;">
             
             <p>A place to Learn, teach and discuss about code. Contribute and get rewarded. Serving coding community is our number 1 priority</p>
       
@@ -28,9 +28,10 @@
                 
                 <img class="img-fluid card-img-top rounded" src="{{ blog.image.url }}" alt="cover_photo"/></a>
               </div>
-            <div class="card-body"><a class="text-uppercase text-md text-gray-700 letter-spacing-2" href="{% url 'blog_detail' blog.slug %}">{{ blog.user.username }}</a>
+            <div class="card-body">
               <h5 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h5>
-              <a><p class="text-gray-700 text-md my-3">{{ blog.created_at|date:"d M Y" }} &nbsp; <span><i class="far fa-clock mr-2"></i>{{blog.get_readtime}}</span></p>
+              <a class="text-uppercase text-md text-gray-700 letter-spacing-1" href="{% url 'blog_detail' blog.slug %}">{{ blog.user.username }}</a>
+              <a><p class="text-gray-700 text-sm my-2">{{ blog.created_at|date:"d M Y" }} &nbsp; <span><i class="far fa-clock mr-2"></i>{{blog.get_readtime}} Read</span></p>
               <p class="my-2 text-muted text-sm">
                 {{ blog.content|striptags|truncatechars:"200"}}
                 

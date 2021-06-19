@@ -10,7 +10,7 @@
 
                 <div class="mt-5 mb-5">
                     <h1>{{blog_detail.title}}</h1>
-                    <p class="text-gray-500 text-lg my-3">{{blog_detail.subtitle}}</p>
+                    <p class="text-gray-500 text-md my-3">{{blog_detail.subtitle}}</p>
                 </div>
         
                 <div class="">
@@ -20,19 +20,25 @@
                 </div>
 
                 <hr>
-                
-                <div class="container row bloguserdetails mt-3 mb-8">
+                <!-- user deatails -->
+                <div class="container row bloguserdetails mt-3">
                     <div class="image">
+                        
                         <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="profile-pic">
-                    </div>
-                    <div class="userdetails">
-                        
-                        <span class="text-lg">{{blog_detail.user}}</span>
-                        <p class="text-gray-400 text-md">Published on <span class="text-gray-700">{{blog_detail.created_at|date:"d M Y"}}</span></p>
-                        <span class="text-gray-700 text-md"><i class="far fa-clock mr-2"></i>{{blog_detail.get_readtime}}</span>
                         
                     </div>
-                </div> 
+                    <div class="userinfo1">
+                        
+                            <span class="text-lg">Mark Willians</span></br>
+                            <span class="text-gray-700 text-sm"><i class="fas fa-at mr-2"></i>{{blog_detail.user.username}}</span></br>
+                            <span class="text-gray-400 text-md">Published on <span class="text-gray-700">{{blog_detail.created_at|date:"d M Y"}}</span></span>
+                        
+                    </div>
+                    <div class="userinfo2">
+                        <span class="text-gray-700 text-sm"><i class="far fa-clock mr-2"></i>{{blog_detail.get_readtime}} Read</span>
+                    </div>
+                </div>
+                 <!--user details over  -->
                 
                 <hr>
                 

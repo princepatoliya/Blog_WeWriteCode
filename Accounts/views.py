@@ -1,7 +1,10 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+
 from .models import Profile
+from Home.models import BlogModel
 
 # Create your views here.
 
@@ -19,9 +22,16 @@ def login_view(request):
     else:
         return render(request, 'accounts/login.html')
 
-
+@login_required(login_url='login_view')
 def profile_view(request):
-    return render(request, "accounts/profile.html")
+    data = {}
+    try: 
+        blogs = BlogModel.objects.filter(user = request.user)
+        data = {'all_blogs' : blogs}
+    
+    except Exception as e:
+        print(e)
+    return render(request, "accounts/profile.html",data)
 
 
 

@@ -1,9 +1,64 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
-<div class="container profilecontainer">
-    <h1>User Profile under progress</h1>
-</div>
+<div class="container">
+    <!-- Profile image -->
+    <div class="bg-white shadow rounded overflow-hidden" >
+        <div class="px-4 pt-0 pb-4 cover">
+            <div class="media align-items-end profile-head">
+                <div class="profile mr-3 profile-image mt-2">
+                    <img class="rounded-circle mb-2 img-thumbnail" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                </div>
+                <div>
+                    <h1>Mark Williams</h1>
+                    <p class="text-gray-700 text-md"> <i class="fas fa-at mr-2"></i>{{request.user.username}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="mt-3 mb-6 bg-white shadow rounded overflow-hidden" >
+        <div class="px-4 pt-0 pb-4 cover">
+            <div class="mt-4 mb-4"><a class="atag" style="font-size: 25px;"><i class="fas fa-box-open"></i> Stories</a></div>
+            
+            
+            <div class="table-responsive-lg">
+                <table class="table-sm table-hover">
+                    <thead class="text-gray-700 text-lg">
+                        <tr>
+                        <th scope="col"> No</th>
+                        <th  style="width: 300px;" scope="col"> Blog Title</th>
+                        <th  style=" width: 200px;"  scope="col"> Created at</th>
+                        <th  style=" width: 200px;" scope="col"> Update at</th>
+                        <th  style=" width: 50px;" scope="col"></th>
+                        <th  style=" width: 50px;" scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for blog in all_blogs %}
+                        <tr>
+                        <th class=" text-center text-gray-700 text-lg" scope="row">{{forloop.counter}}</th>
+                        <td>{{blog.title|truncatechars:32}}</td>	
+                        <td>{{blog.created_at}}</td>
+                        <td>{{blog.update_at}}</td>
+                        <td>
+                            <a id="confirm-update" href="{% url 'update_blog' blog.slug %}" class="fas fa-edit fa-md"></a>
+                        </td>
+                        <td>
+            
+                            <a id="confirm-delete" class="fas fa-trash-alt fa-md" href="{% url 'delete_blog' blog.id %}" ></a>
+                        </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            
+        </div>
+    </div>
+
+</div>
 {% endblock %}
