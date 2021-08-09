@@ -4,7 +4,7 @@
 Blog application with fully CURD functionality
 
 Extra features
-- register with email verification and Login
+- register with email verification and Login with OTP
 ---
 
 ## Setup
